@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 const userNameValidationSchema = z.object({
   firstName: z.string().nonempty('First name is required'),
-  middleName: z.string().optional(),
+  middleName: z.string(),
   lastName: z.string().nonempty('Last name is required'),
 });
 
@@ -23,7 +23,7 @@ const localGuardianValidationSchema = z.object({
 });
 
 const studentValidationSchema = z.object({
-  id: z.string().optional(),
+  id: z.string(),
   name: userNameValidationSchema,
   gender: z.enum(['male', 'female', 'other'], {
     required_error: 'Gender is required',
